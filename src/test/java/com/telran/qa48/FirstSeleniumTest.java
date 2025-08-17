@@ -21,7 +21,9 @@ public class FirstSeleniumTest {
 
         //driver.get("https://www.google.com/");//without history
         driver.navigate().to("https://www.google.com/");
+
         driver.navigate().back();
+
         driver.navigate().forward();
         driver.navigate().refresh();
 
