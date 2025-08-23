@@ -25,7 +25,7 @@ public class FirstSeleniumTest {
         driver.navigate().back();
 
         driver.navigate().forward();
-        
+
         driver.navigate().refresh();
 
     }
