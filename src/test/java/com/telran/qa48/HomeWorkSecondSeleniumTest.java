@@ -17,4 +17,11 @@ public class HomeWorkSecondSeleniumTest {
     public void openShop(){
         System.out.println("Shop page is opened");
     }
+
+    @Test
+    public void findElementByTagNameHW() {
+
+    }
+
 }
+
