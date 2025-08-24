@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -46,15 +47,52 @@ public class FindElementsHW {
             //by partial link
             driver.findElement(By.partialLinkText("Computer"));
 
-
-
         // List<WebElement> h3List = driver.findElements(By.tagName("h3"));
         //if (!h1List.isEmpty()) {
         // System.out.println("Найден h3: " + h1List.get(0).getText());
         //} else {
         //System.out.println("h3 не найден");
     }
+      @Test
+      public void findElementByCssSelectorHW() {
+          //"#id css"
+          driver.get("https://demowebshop.tricentis.com/");
+          driver.findElement(By.cssSelector("#bar-notification"));
+          //".class_name"
+          driver.findElement(By.cssSelector(".topic-html-content-header"));
+          //"[attr='value']"
+          driver.findElement(By.cssSelector("[href='/register']"));
+          //contains (wishlist-> href*='/wish')
+          driver.findElement(By.cssSelector("[href*='/wish']"));
+          //href^ start
+          driver.findElement(By.cssSelector("[href^='/wi']"));
+          //href$ end
+          driver.findElement(By.cssSelector("[href$='/wishlist']"));
+          //SelectorHub
+          //tag +id
+          driver.findElement(By.cssSelector("div#bar-notification"));
+          //tag+class
+          driver.findElement(By.cssSelector("div.header-logo"));
+      }
+      @Test
+    public void findElementByXpathHW() {
+          driver.get("https://demowebshop.tricentis.com/");
+          //tag->xpath //tag
+          driver.findElement(By.xpath("//h3"));
+        //id->xpath //*[@id='value']
+          driver.findElement(By.xpath("//div[@id='bar-notification']"));
+          //class_name->xpath //*[@class='value']
+          driver.findElement(By.xpath("//div[@class='header-logo']"));
+          //contains->//[contains(.,'Text')]
+          driver.findElement(By.xpath("//h2[contains(.,'Card')]"));
+          //equal->//*[text()='Text']
+         //driver.findElement(By.xpath("//h2[text()='$25 Virtual Gift Card']")); didnt work cause text placed in a not in h2 directly
+          driver.findElement(By.xpath("//a[text()='$25 Virtual Gift Card']"));
+          driver.findElement(By.xpath("//a[.='$25 Virtual Gift Card']"));
+          //start->*[starts-with(@attr,'Text'])
+          driver.findElement(By.xpath("//label[starts-with(@for,'p')]"));
 
+      }
 
     @AfterMethod
     public void tearDown() {
