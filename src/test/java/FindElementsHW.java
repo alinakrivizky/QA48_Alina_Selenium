@@ -3,7 +3,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -31,7 +30,7 @@ public class FindElementsHW {
     }
 
     @Test
-    public void findH1Element() {
+    public void findH1Element(By xpath) {
         driver.get("https://demowebshop.tricentis.com/");
         WebElement element = driver.findElement(By.tagName("h3"));
         System.out.printf(element.getText());
@@ -91,6 +90,16 @@ public class FindElementsHW {
           driver.findElement(By.xpath("//a[.='$25 Virtual Gift Card']"));
           //start->*[starts-with(@attr,'Text'])
           driver.findElement(By.xpath("//label[starts-with(@for,'p')]"));
+          //move up
+          driver.findElement(By.xpath("//a[@class='ico-wishlist']/.."));
+          //parent
+          driver.findElement(By.xpath("//h2/parent::*"));
+          driver.findElement(By.xpath("//h3/parent::div"));//two options
+          driver.findElement(By.xpath("//h3/.."));
+          //ancestor
+          driver.findElement(By.xpath("//h2/ancestor::*"));
+          driver.findElement(By.xpath("//h3/ancestor::div[2]"));//one option
+
 
       }
 
