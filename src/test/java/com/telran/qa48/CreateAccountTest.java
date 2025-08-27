@@ -31,7 +31,7 @@ public class CreateAccountTest extends TestBase {
         //button
         driver.findElement(By.id("register-button")).click();
         Assert.assertTrue(isElementPresent(By.cssSelector(".result")),
-                "Registration was not successful!");
+                "Registration was not successful!");//
 
 
 
