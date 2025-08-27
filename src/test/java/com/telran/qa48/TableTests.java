@@ -29,11 +29,23 @@ public class TableTests {
     }
     @Test
     public void findElementsInTableWithCssTableWithCssTest(){
+        //for row tr for column td
         //print number of row
         List<WebElement>rows=driver.findElements(By.cssSelector("tr"));
         System.out.println("rows in table is "+rows.size());
         for(WebElement row:rows){
             System.out.println(row.getText());
+            //get row4
+            WebElement row4 = driver.findElement(By.cssSelector("tr:nth-child(4)"));//xpath //tr[4]
+            System.out.println(row4.getText());
+            //get first item in row
+            WebElement item1 =driver.findElement(By.cssSelector("tr:nth-child(7) td:nth-child(1)"));
+            System.out.println(item1.getText());
+            //get last child
+            WebElement item2 =driver.findElement(By.cssSelector("tr:nth-child(8) td:last-child"));
+            System.out.println(item2.getText());
+
+
         }
     }
 }

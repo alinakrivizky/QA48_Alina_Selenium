@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class HomeWorkSecondSeleniumTest {
+public class HomeWorkSecondSeleniumTest{
     WebDriver driver;
     @BeforeMethod
     public void setUp(){
