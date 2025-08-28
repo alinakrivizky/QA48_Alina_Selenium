@@ -7,27 +7,17 @@ import org.testng.annotations.Test;
 public class CreateAccountTest extends TestBase {
     @Test
     public void newUserRegistrationPositiveTest() {
-        driver.findElement(By.cssSelector("a[href='/register']")).click();
+        click(By.cssSelector("a[href='/register']"));
         //firstname
-        driver.findElement(By.name("FirstName")).click();
-        driver.findElement(By.name("FirstName")).clear();
-        driver.findElement(By.name("FirstName")).sendKeys("Alina");
+        type(By.name("FirstName"), "Alina");
         //lastname
-        driver.findElement(By.name("LastName")).click();
-        driver.findElement(By.name("LastName")).clear();
-        driver.findElement(By.name("LastName")).sendKeys("Krivizky");
+        type(By.name("LastName"),"Krivizky");
         //email
-        driver.findElement(By.name("Email")).click();
-        driver.findElement(By.name("Email")).clear();
-        driver.findElement(By.name("Email")).sendKeys("krivickaaa@gmail.com");
+       type(By.name("Email"), "krivickaaa@gmail.com");
         //password
-        driver.findElement(By.name("Password")).click();
-        driver.findElement(By.name("Password")).clear();
-        driver.findElement(By.name("Password")).sendKeys("aL2112!");
+        type(By.name("Password"), "aL2112!");
         //confirmpassword
-        driver.findElement(By.name("ConfirmPassword")).click();
-        driver.findElement(By.name("ConfirmPassword")).clear();
-        driver.findElement(By.name("ConfirmPassword")).sendKeys("aL2112!");
+        type(By.name("ConfirmPassword"), "aL2112!");
         //button
         driver.findElement(By.id("register-button")).click();
         Assert.assertTrue(isElementPresent(By.cssSelector(".result")),
@@ -37,4 +27,5 @@ public class CreateAccountTest extends TestBase {
 
 
     }
+
 }
