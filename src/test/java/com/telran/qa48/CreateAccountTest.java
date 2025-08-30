@@ -13,7 +13,10 @@ public class CreateAccountTest extends TestBase {
         //lastname
         type(By.name("LastName"),"Krivizky");
         //email
-       type(By.name("Email"), "krivickaaa@gmail.com");
+        int i = (int)((System.currentTimeMillis() / 1000) % 3600);
+        String email = "alina" + i + "@gmail.com";
+        type(By.name("Email"), email);
+        //type(By.name("Email"), "krivickaaa@gmail.com");
         //password
         type(By.name("Password"), "aL2112!");
         //confirmpassword
