@@ -23,8 +23,7 @@ public class CreateAccountTest extends TestBase {
         type(By.name("ConfirmPassword"), "aL2112!");
         //button
         driver.findElement(By.id("register-button")).click();
-        Assert.assertTrue(isElementPresent(By.cssSelector(".result")),
-                "Registration was not successful!");//
+        Assert.assertTrue(isElementPresent(By.cssSelector("#dialog-notifications-success")));
 
 
 
