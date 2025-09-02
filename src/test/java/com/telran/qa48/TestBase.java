@@ -13,7 +13,7 @@ import java.time.Duration;
 public class TestBase {
         WebDriver driver;
 
-        @BeforeMethod
+    @BeforeMethod
         public void setUp() {
             driver = new ChromeDriver();
             driver.manage().window().maximize();
@@ -39,6 +39,60 @@ public class TestBase {
         click(locator);//FirstName"
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(text);
+    }
+
+    public void clickOnRegisterButton() {
+        click(By.id("register-button"));
+    }
+
+    public void fillRegistrationForm(UnregisteredUser unregisteredUser) {
+        type(By.name("FirstName"), unregisteredUser.getFirstName());
+        type(By.name("LastName"),unregisteredUser.getLastName());
+        //int i = (int)((System.currentTimeMillis() / 1000) % 3600);
+        //String email = "alina" + i + "@gmail.com";
+        type(By.name("Email"), unregisteredUser.getEmail());
+        type(By.name("Password"), unregisteredUser.getPassword());
+        type(By.name("ConfirmPassword"), unregisteredUser.getConfirmPassword());
+    }
+
+    public void clickOnRegisterLink() {
+        click(By.cssSelector("a[href='/register']"));
+    }
+
+    public void clickOnLoginButton() {
+        click(By.cssSelector("input[value='Log in']"));
+    }
+
+    public void fillLoginForm(RegisteredUser registeredUser) {
+        type(By.name("Email"), registeredUser.getEmail());
+        type(By.name("Password"), registeredUser.getPassword());
+    }
+
+    public void clickOnLoginLink() {
+        click(By.cssSelector("[href='/login']"));
+    }
+
+    public void addSecondItemToCart() {
+        click(By.xpath("(//input[@value='Add to cart'])[2]"));
+    }
+
+    public void goToMainPageButton() {
+        click(By.cssSelector("img[alt='Tricentis Demo Web Shop']"));
+    }
+
+    public void addFirstItemtoCart() {
+        click(By.xpath("(//input[@value='Add to cart'])[5]"));
+        click(By.cssSelector("input[value='89']"));
+        click(By.cssSelector("input[value='Add to cart']"));
+    }
+
+    public void removeItemFromCart() {
+        click(By.name("removefromcart"));
+        click(By.cssSelector("input[value='Update shopping cart']"));
+    }
+
+    public void goToCartButton() {
+        click(By.cssSelector("[href='/cart']"));
     }
 }
 

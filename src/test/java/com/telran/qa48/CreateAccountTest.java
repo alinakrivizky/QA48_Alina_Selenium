@@ -7,23 +7,16 @@ import org.testng.annotations.Test;
 public class CreateAccountTest extends TestBase {
     @Test
     public void newUserRegistrationPositiveTest() {
-        click(By.cssSelector("a[href='/register']"));
-        //firstname
-        type(By.name("FirstName"), "Alina");
-        //lastname
-        type(By.name("LastName"),"Krivizky");
-        //email
-        int i = (int)((System.currentTimeMillis() / 1000) % 3600);
-        String email = "alina" + i + "@gmail.com";
-        type(By.name("Email"), email);
-        //type(By.name("Email"), "krivickaaa@gmail.com");
-        //password
-        type(By.name("Password"), "aL2112!");
-        //confirmpassword
-        type(By.name("ConfirmPassword"), "aL2112!");
-        //button
-        driver.findElement(By.id("register-button")).click();
-        Assert.assertTrue(isElementPresent(By.cssSelector("#dialog-notifications-success")));
+        clickOnRegisterLink();
+        fillRegistrationForm(new UnregisteredUser().setFirstName("Alina")
+                .setLastName("Krivizky")
+                .setEmail("alinA21@gmail.com")
+                .setPassword("aL2112!")
+                .setConfirmPassword("aL2112!"));
+
+        clickOnRegisterButton();
+        Assert.assertTrue(isElementPresent
+                (By.cssSelector("#dialog-notifications-success")));
 
 
 
