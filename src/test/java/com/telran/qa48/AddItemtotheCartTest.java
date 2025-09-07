@@ -7,12 +7,12 @@ import org.testng.annotations.Test;
 public class AddItemtotheCartTest extends TestBase {
     @Test
     public void addItemTest(){
-        addFirstItemtoCart();
-        Assert.assertTrue(isElementPresent
+        app.getItem().addFirstItemtoCart();
+        Assert.assertTrue(app.getItem().isElementPresent
                 (By.cssSelector("#dialog-notifications-success")));
-        goToMainPageButton();
-        addSecondItemToCart();
-        Assert.assertTrue(isElementPresent
+        app.getItem().goToMainPageButton();
+        app.getItem().addSecondItemToCart();
+        Assert.assertTrue(app.getItem().isElementPresent
                 (By.cssSelector("#dialog-notifications-success")));
 
     }

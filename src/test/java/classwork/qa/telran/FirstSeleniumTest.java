@@ -1,4 +1,4 @@
-package com.telran.qa48;
+package classwork.qa.telran;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

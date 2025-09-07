@@ -7,12 +7,12 @@ import org.testng.annotations.Test;
 public class DeleteItemTest extends TestBase{
     @Test
     public void deleteItemTest(){
-        addFirstItemtoCart();
-        Assert.assertTrue(isElementPresent(By.cssSelector("#dialog-notifications-success")));
-        goToMainPageButton();
-        goToCartButton();
-        removeItemFromCart();
-        Assert.assertTrue(isElementPresent(By.cssSelector("#dialog-notifications-success")));
+        app.getItem().addFirstItemtoCart();
+        Assert.assertTrue(app.getItem().isElementPresent(By.cssSelector("#dialog-notifications-success")));
+        app.getItem().goToMainPageButton();
+        app.getItem().goToCartButton();
+        app.getItem().removeItemFromCart();
+        Assert.assertTrue(app.getItem().isElementPresent(By.cssSelector("#dialog-notifications-success")));
     }
 
 }

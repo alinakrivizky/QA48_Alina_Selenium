@@ -1,4 +1,4 @@
-package com.telran.qa48;
+package com.shop.models;
 
 public class RegisteredUser {
 private String email;
