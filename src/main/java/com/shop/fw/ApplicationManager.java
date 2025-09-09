@@ -2,16 +2,26 @@ package com.shop.fw;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class ApplicationManager {
-  WebDriver driver;
+    String browser;
+    WebDriver driver;
 
   UserHelper user;
   ItemHelper item;
   HomePageHelper home;
 
+    public ApplicationManager(String browser) {
+        this.browser=browser;
+    }
+
     public void init() {
-        driver = new ChromeDriver();
+        if(browser.equalsIgnoreCase("chrome")) {
+            driver=new ChromeDriver();
+        }else if(browser.equalsIgnoreCase("safari")) {
+            driver=new SafariDriver();
+        }
         driver.manage().window().maximize();
         driver.get("https://demowebshop.tricentis.com/");
 
