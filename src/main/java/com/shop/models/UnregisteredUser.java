@@ -51,4 +51,14 @@ public class UnregisteredUser {
     public String getConfirmPassword() {
         return confirmPassword;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstname='" + firstName+ '\'' +
+                ", lastName='" + lastName + '\'' +
+                ",email='" + email+ '\'' +
+                ", password='" + password + '\'' +
+                ", confirm='" + confirmPassword + '\'' ;
+    }
 }
