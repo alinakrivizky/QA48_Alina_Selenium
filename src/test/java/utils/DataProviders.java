@@ -1,4 +1,4 @@
-package com.shop.utils;
+package utils;
 
 import com.shop.models.UnregisteredUser;
 import org.testng.annotations.DataProvider;

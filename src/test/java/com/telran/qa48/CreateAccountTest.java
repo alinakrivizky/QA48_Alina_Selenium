@@ -1,18 +1,11 @@
 package com.telran.qa48;
 
 import com.shop.data.UnregisteredUserData;
-import com.shop.models.RegisteredUser;
 import com.shop.models.UnregisteredUser;
-import com.shop.utils.DataProviders;
+import utils.DataProviders;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class CreateAccountTest extends TestBase {
 
