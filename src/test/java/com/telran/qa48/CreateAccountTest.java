@@ -2,10 +2,15 @@ package com.telran.qa48;
 
 import com.shop.data.UnregisteredUserData;
 import com.shop.models.UnregisteredUser;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.DataProviders;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class CreateAccountTest extends TestBase {
 
@@ -20,9 +25,8 @@ public class CreateAccountTest extends TestBase {
                 .setConfirmPassword(UnregisteredUserData.PASSWORD));
 
         app.getUser().clickOnRegisterButton();
-        Assert.assertTrue(app.getUser().isElementPresent
-                (By.cssSelector("#dialog-notifications-success")));
 
+        Assert.assertTrue(app.getUser().isElementPresent(By.cssSelector("#dialog-notifications-success")));
 
     }
 

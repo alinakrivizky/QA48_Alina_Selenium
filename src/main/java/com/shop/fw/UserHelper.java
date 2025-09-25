@@ -4,6 +4,10 @@ import com.shop.models.RegisteredUser;
 import com.shop.models.UnregisteredUser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class UserHelper extends BaseHelper {
     public UserHelper(WebDriver driver) {
@@ -40,4 +44,19 @@ public class UserHelper extends BaseHelper {
     public void clickOnLoginLink() {
         click(By.cssSelector("[href='/login']"));
     }
+    public boolean waitForElement(By locator, int seconds) {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(seconds))
+                    .until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    // Можно добавить проверку, есть ли элемент сразу
+    public boolean isElementPresent(By locator) {
+        return !driver.findElements(locator).isEmpty();
+    }
 }
+
